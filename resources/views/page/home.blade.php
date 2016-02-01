@@ -175,6 +175,3 @@ $(document).ready(function(){
 </div>
 
 @stop
-
-<!-- new change -->
-<!-- two -->
