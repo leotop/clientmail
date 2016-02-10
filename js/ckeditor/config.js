@@ -36,11 +36,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.filebrowserImageUploadUrl = "/upload-image";
+
 };
 
-// CKEDITOR.replace('msg', {
-// filebrowserImageUploadUrl : "{{route('info.upload',['_token' => csrf_token() ])}}",
-// filebrowserWindowWidth  : 800,
-// filebrowserWindowHeight : 500
-// });

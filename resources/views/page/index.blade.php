@@ -1,7 +1,7 @@
 @extends('head')
 @section('content')
 
-<div class="wi-ma">
+<div class="wi-ma" style="height: 800px">
     <center>
         <div style="width: 500px; padding-top: 200px">
             @if (count($errors) > 0)
@@ -12,7 +12,7 @@
                 </div>
             @endif
 
-            <div class="bg-primary" style="font-size: 20px; padding: 5px">Autentificare</div>
+            <div class="bg-primary" style="font-size: 20px; padding: 5px;">Autentificare</div>
             <br>
             <form action="/" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

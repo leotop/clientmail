@@ -1,13 +1,20 @@
 @extends('head')
 @section('content')
 
+@if(isset($files))
+	@foreach($files as $file)
+		<a href='{{ url("public/uploads/about/".$file["basename"]) }}'>
+			<img src='{{ url("public/uploads/about/".$file["basename"]) }}'>
+		</a>
+	@endforeach
+@endif
+
 <script>
 $(document).ready(function(){
 	$('#select-all').change(function(){
 		$('.check').prop('checked', $(this).prop("checked"));
 	});
 });
-
 </script>
 
 <div class="wi-ma">
@@ -154,24 +161,39 @@ $(document).ready(function(){
 			<input type="text" name="subject" class="form-control" placeholder="Subiectul mesajului">
 			<br>
 			<textarea name="msg"></textarea>
-			<script> CKEDITOR.replace('msg'); 
-				CKEDITOR.replace(‘editor1’,{
-				filebrowserBrowseUrl: “{{route(‘infos.image.browse’)}}”,
-				filebrowserUploadUrl : ‘/browser/upload/type/all’,
-				filebrowserImageBrowseUrl: “{{route(‘infos.image.browse’)}}”,
-				filebrowserImageUploadUrl : “{{route(‘infos.upload’,[‘_token’ => csrf_token() ])}}”,
-				filebrowserWindowWidth  : 800,
-				filebrowserWindowHeight : 500
-				});
+
+
+			<script>
+				CKEDITOR.replace('msg', {
+					filebrowserBrowseUrl: "{{ route('browse-image') }}",
+					filebrowserUploadUrl: "{{ route('browse-image') }}",
+					filebrowserImageBrowseUrl: "public/uploads/about",
+					filebrowserImageUploadUrl: "{{ route('upload-image', ['_token' => csrf_token()]) }}",
+				}); 
 			</script>
 			<br>
-			<input type="submit" value="Expediaza" name="expediaza" class="btn btn-primary">
 		</div>
+			<table class="table table-bordered table-condensed table-striped table-hover">
+				<tr>
+					<td><img src="img/sablon1.png" class="img-responsive"></td>
+					<td><img src="img/sablon2.png" class="img-responsive"></td>
+				</tr>
+
+				<tr>
+					<td align="center"><input type="submit" value="Expediaza" name="expediaza1" class="btn btn-primary"></td>
+					<td align="center"><input type="submit" value="Expediaza" name="expediaza2" class="btn btn-primary"></td>
+				</tr>
+			</table>
 	</form>
-	@if (isset($test))
-		{{ $test }}
-	@endif
 
 </div>
-
+<script type="text/javascript">
+	$('a[href]').on('click', function(e) {
+		window.opener.CKEDITOR.tools.callFunction(
+		</script>
+		<?php if(isset($test)) echo $test; ?>
+		<script>,
+		$(this).find('img').prop('src'));
+	});
+</script>
 @stop

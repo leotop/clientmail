@@ -41,4 +41,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('test', 'PageController@test');
     Route::get('test2', 'PageController@test2');
 });
-    Route::post('upload-image', 'PageController@uploadImage');
+    Route::post('upload-image', ['as'=>'upload-image', 'uses'=>'PageController@uploadImage']);
+    Route::get('browse-image', ['as' => 'browse-image', 'uses' => 'PageController@browseImage']);

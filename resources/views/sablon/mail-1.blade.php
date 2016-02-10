@@ -23,11 +23,11 @@
                     <table width="600" class="content" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                             <td width="150">
-                                <img src="http://client.cristalpirat.ru/img/logo.png" width="150px" height="120px">
+                                <img src="http://client.gymail.net/img/logo.png" width="150px" height="120px">
                             </td>
                             <td width="10">&nbsp;</td>
                             <td width="300">
-                                <img src="http://client.cristalpirat.ru/img/woman.jpg" width="275px" height="120px">
+                                <img src="http://client.gymail.net/img/woman.jpg" width="275px" height="120px">
                             </td>
                             <td width="150" class="right-bloc" bgcolor="#fff" style="
                             display: block; 
@@ -55,7 +55,7 @@
                       </tr>
                     </table>
                   
-                    <table class="content" width="600" height="950" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <table class="content" width="600" height="200" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                             <td style="">
                                 <div style="padding: 20px">

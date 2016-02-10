@@ -44,7 +44,8 @@ class UserController extends Controller
     {
         $send = SendMail::all();
         $max_id = SendMail::max('id');
-        $expediaza = $request->expediaza; 
+        $expediaza1 = $request->expediaza1; 
+        $expediaza2 = $request->expediaza2; 
         $delete = $request->delete;
 
 
@@ -55,7 +56,7 @@ class UserController extends Controller
                 SendMail::destroy($i);
             } 
 
-            if (isset($expediaza) && !empty($request->input($i)))
+            if (isset($expediaza1) && !empty($request->input($i)))
             {
                 $email = DB::table('sendmail')->where('id', $i)->value('email');
                 $subject = $request->subject;
@@ -63,6 +64,17 @@ class UserController extends Controller
 
                 // DB::table('mailtext')->insert(['msg' => $msg]);
                 Mail::send('sablon.mail-1', ['email' => $email, 'subject' => $subject, 'msg' => $msg], function($m) use ($email, $subject){
+                    $m->to($email)->from('info@profsystem.md', 'ProfSystem')->subject($subject);
+                });
+            }
+            if (isset($expediaza2) && !empty($request->input($i)))
+            {
+                $email = DB::table('sendmail')->where('id', $i)->value('email');
+                $subject = $request->subject;
+                $msg = $request->msg;
+
+                // DB::table('mailtext')->insert(['msg' => $msg]);
+                Mail::send('sablon.mail-2', ['email' => $email, 'subject' => $subject, 'msg' => $msg], function($m) use ($email, $subject){
                     $m->to($email)->from('info@profsystem.md', 'ProfSystem')->subject($subject);
                 });
             }
