@@ -42,7 +42,26 @@
                         </tr>
                     </table>
                   
-                    <table class="content" width="600" height="200" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <table class="content" width="600" height="25" bgcolor="#ED1C24" align="center" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="10"></td>
+                        <td style="color: #fff">
+                          mun Chisinau str. Bucuriei 1</td>
+                        <td></td>
+                        <td align="right" style="color: #fff">
+                          060 036 555, 060 036 600
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                  
+                    <table class="content" width="600" height="200" bgcolor="#fff" align="center" bordercolor="ff0000" border="5" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td>
+                            <div style="height: 326px; background: url('http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/8martie.jpg') center no-repeat"></div>
+                          </td>
+                        </tr>
+                      
                         <tr>
                             <td style="">
                                 <div style="padding: 20px">

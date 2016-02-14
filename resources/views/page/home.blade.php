@@ -175,13 +175,15 @@ $(document).ready(function(){
 		</div>
 			<table class="table table-bordered table-condensed table-striped table-hover">
 				<tr>
-					<td><img src="img/sablon1.png" class="img-responsive"></td>
-					<td><img src="img/sablon2.png" class="img-responsive"></td>
+					<td width="200"><img src="img/sablon1.png" class="img-responsive"></td>
+					<td width="200"><img src="img/sablon2.png" class="img-responsive"></td>
+					<td width="200"><img src="img/sablon3.jpg" class="img-responsive"></td>
 				</tr>
 
 				<tr>
 					<td align="center"><input type="submit" value="Expediaza" name="expediaza1" class="btn btn-primary"></td>
 					<td align="center"><input type="submit" value="Expediaza" name="expediaza2" class="btn btn-primary"></td>
+					<td align="center"><input type="submit" value="Expediaza" name="expediaza3" class="btn btn-primary"></td>
 				</tr>
 			</table>
 	</form>

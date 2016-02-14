@@ -23,11 +23,11 @@
                     <table width="600" class="content" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                             <td width="150">
-                                <img src="http://client.gymail.net/img/logo.png" width="150px" height="120px">
+                                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/logo.png" width="150px" height="120px">
                             </td>
                             <td width="10">&nbsp;</td>
                             <td width="300">
-                                <img src="http://client.gymail.net/img/woman.jpg" width="275px" height="120px">
+                                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/woman.jpg" width="275px" height="120px">
                             </td>
                             <td width="150" class="right-bloc" bgcolor="#fff" style="
                             display: block; 

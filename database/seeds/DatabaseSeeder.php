@@ -14,23 +14,53 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserTableSeeder::class);
         DB::table('users')->insert(['name' => 'Vitalii', 'email' => 'vdobos@mail.ru', 'password' => 22]);
         DB::table('sendmail')->insert([
-            'email' => 'celius55@yahoo.com',
-            'nume' => 'admin_nume',
-            'prenume' => 'admin_prenume',
+            ['email' => 'celius55@yahoo.com',
+            'nume' => 'admin',
+            'prenume' => 'admin',
             'ziua' => 7,
             'luna' => 8,
             'sexul' => 'masculin',
-            'compania' => 'Laravel' 
-        ]);
+            'compania' => 'Laravel'],
 
-        DB::table('sendmail')->insert([
-            'email' => 'celius55@yahoo.com2',
-            'nume' => 'admin_nume2',
-            'prenume' => 'admin_prenume2',
-            'ziua' => 72,
-            'luna' => 82,
-            'sexul' => 'masculin2',
-            'compania' => 'Laravel2' 
+            ['email' => 'marahovschii.victor@mail.ru',
+            'nume' => 'admin',
+            'prenume' => 'admin',
+            'ziua' => 7,
+            'luna' => 8,
+            'sexul' => 'masculin',
+            'compania' => 'Laravel'],
+
+            ['email' => 'vdobos@mail.ru',
+            'nume' => 'vitalii',
+            'prenume' => 'dobos',
+            'ziua' => 22,
+            'luna' => 2,
+            'sexul' => 'masculin',
+            'compania' => 'fizica'],
+
+            ['email' => 'vitalii732002@yahoo.com',
+            'nume' => 'vitalii',
+            'prenume' => 'dobos',
+            'ziua' => 22,
+            'luna' => 2,
+            'sexul' => 'masculin',
+            'compania' => 'fizica'],
+
+            ['email' => 'berdean@rambler.ru',
+            'nume' => 'natalia',
+            'prenume' => 'berdea',
+            'ziua' => 8,
+            'luna' => 3,
+            'sexul' => 'femenin',
+            'compania' => 'fizica'],
+
+            ['email' => 'matematica.72@mail.ru',
+            'nume' => 'lilia',
+            'prenume' => 'brinza',
+            'ziua' => 0,
+            'luna' => 0,
+            'sexul' => 'femenin',
+            'compania' => 'fizica']
         ]);
     }
 }
