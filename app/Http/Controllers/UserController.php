@@ -46,9 +46,6 @@ class UserController extends Controller
     {
         $send = SendMail::all();
         $max_id = SendMail::max('id');
-        $expediaza1 = $request->expediaza1; 
-        $expediaza2 = $request->expediaza2;
-        $expediaza3 = $request->expediaza3;
         $delete = $request->delete;
 
 
@@ -59,15 +56,22 @@ class UserController extends Controller
                 SendMail::destroy($i);
             } 
 
-            if (isset($expediaza.$i) && !empty($request->input($i)))
+            $expediaza = $request->expediaza.$i; 
+            if (isset($expediaza) && !empty($request->input($i)))
             {
                 $email = DB::table('sendmail')->where('id', $i)->value('email');
+                $from = $request->from;
+                $from_name = $request->from-name;
                 $subject = $request->subject;
                 $msg = $request->msg;
+                
+                //Create report a send message             
+                $key = md5(Carbon::now()).rand(0, 100000);
+                $key_link = 'http://'.$_SERVER['SERVER_NAME'].'?report='.$key;
 
-                // DB::table('mailtext')->insert(['msg' => $msg]);
-                Mail::send('sablon.mail-'.$i, ['email' => $email, 'subject' => $subject, 'msg' => $msg], function($m) use ($email, $subject){
-                    $m->to($email)->from('info@profsystem.md', 'ProfSystem')->subject($subject);
+                // Send message
+                Mail::send('sablon.mail-'.$i, ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name], function($m) use ($email, $subject, $from, $from_name){
+                    $m->to($email)->from($from, $from_name)->subject($subject);
                 });
             }
         }

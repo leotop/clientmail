@@ -47,9 +47,7 @@ class PageController extends Controller
 
     public function report() 
     {
-        $report = md5(Carbon::now());
-
-        return view('page.test', compact('test'));
+        $test = $_SERVER['SERVER_NAME'];
     }
     
     public function uploadImage(Request $request) 
