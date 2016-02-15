@@ -45,9 +45,10 @@ class PageController extends Controller
         return view('sablon.mail-3', compact('msg'));
     }
 
-    public function report() 
+    public function report(Request $request) 
     {
-        $test = $_SERVER['SERVER_NAME'];
+        $report = $request->report;
+        Report::where('key', $report)->update(['status', 'citit']);
     }
     
     public function uploadImage(Request $request) 

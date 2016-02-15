@@ -61,16 +61,17 @@ class UserController extends Controller
             {
                 $email = DB::table('sendmail')->where('id', $i)->value('email');
                 $from = $request->from;
-                $from_name = $request->from-name;
+                $from_name = $request->from_name;
                 $subject = $request->subject;
                 $msg = $request->msg;
                 
                 //Create report a send message             
                 $key = md5(Carbon::now()).rand(0, 100000);
                 $key_link = 'http://'.$_SERVER['SERVER_NAME'].'?report='.$key;
+                Report::insert(['email'=>$email, 'key'=>$key]);
 
                 // Send message
-                Mail::send('sablon.mail-'.$i, ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name], function($m) use ($email, $subject, $from, $from_name){
+                Mail::send('sablon.mail-'.$i, ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name, 'key'=>$key_link], function($m) use ($email, $subject, $from, $from_name){
                     $m->to($email)->from($from, $from_name)->subject($subject);
                 });
             }
@@ -98,6 +99,22 @@ class UserController extends Controller
                 ->get();
 
         return view('page.home', compact('send'));
+    }
+
+    public function statistic()
+    {
+        // $send = Report::distinct()->select('created_at')->get();
+        $send = Report::distinct()->select('created_at')->get();
+
+        return view('page.statistic', compact('send'));
+    }
+
+    public function statisticDetail(Request $request)
+    {
+        $created = $request->created;
+        $send = Report::where('created_at', $created)->get();
+
+        return view('page.statistic-detail', compact('send', 'created'));
     }
 
 }

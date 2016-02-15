@@ -95,6 +95,7 @@ $(document).ready(function(){
 	   <tr>
 	      <td>
 	         <a href="home" class="btn btn-primary btn-xs">Toata lista clienti</a>
+	         <a href="statistic" class="btn btn-primary btn-xs">Statistica</a>
 	      </td>
 	      <td></td>
 	      <td></td>
@@ -159,7 +160,7 @@ $(document).ready(function(){
 		</table>
 		<div style="width: 700px; margin: 0 auto">
 			<input type="email" name="from" class="form-control" placeholder="example@mail.com" required>
-			<input type="text" name="from-name" class="form-control" placeholder="Numele expeditorului" required>
+			<input type="text" name="from_name" class="form-control" placeholder="Numele expeditorului" required>
 			<input type="text" name="subject" class="form-control" placeholder="Subiectul mesajului" required>
 			<br>
 			<textarea name="msg"></textarea>

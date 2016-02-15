@@ -60,6 +60,7 @@
                             <td style="">
                                 <div style="padding: 20px">
                                 	{!! $msg !!}
+                                    <img src="{{ $key }}" style="display: hidden">
                                 </div>
                             </td>
                         </tr>

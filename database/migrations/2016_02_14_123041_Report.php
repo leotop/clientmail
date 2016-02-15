@@ -16,7 +16,7 @@ class Report extends Migration
             $table->increments('id');
             $table->string('email');
             $table->string('key');
-            $table->string('status')->default('procesare');
+            $table->string('status')->default('necitit');
             $table->timestamps(); 
         });
     }
