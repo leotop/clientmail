@@ -48,6 +48,9 @@ class UserController extends Controller
         $max_id = SendMail::max('id');
         $delete = $request->delete;
 
+        $expediaza1 = $request->expediaza1;
+        $expediaza2 = $request->expediaza2;
+        $expediaza3 = $request->expediaza3;
 
         for ($i=1; $i<=$max_id; $i++)
         {
@@ -56,8 +59,7 @@ class UserController extends Controller
                 SendMail::destroy($i);
             } 
 
-            $expediaza = $request->expediaza.$i; 
-            if (isset($expediaza) && !empty($request->input($i)))
+            if (isset($expediaza1) && !empty($request->input($i)))
             {
                 $email = DB::table('sendmail')->where('id', $i)->value('email');
                 $from = $request->from;
@@ -67,11 +69,49 @@ class UserController extends Controller
                 
                 //Create report a send message             
                 $key = md5(Carbon::now()).rand(0, 100000);
-                $key_link = 'http://'.$_SERVER['SERVER_NAME'].'?report='.$key;
+                $key_link = 'http://'.$_SERVER['SERVER_NAME'].'/report?report='.$key;
                 Report::insert(['email'=>$email, 'key'=>$key]);
 
                 // Send message
-                Mail::send('sablon.mail-'.$i, ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name, 'key'=>$key_link], function($m) use ($email, $subject, $from, $from_name){
+                Mail::send('sablon.mail-1', ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name, 'key'=>$key_link], function($m) use ($email, $subject, $from, $from_name){
+                    $m->to($email)->from($from, $from_name)->subject($subject);
+                });
+            }
+
+            if (isset($expediaza2) && !empty($request->input($i)))
+            {
+                $email = DB::table('sendmail')->where('id', $i)->value('email');
+                $from = $request->from;
+                $from_name = $request->from_name;
+                $subject = $request->subject;
+                $msg = $request->msg;
+                
+                //Create report a send message             
+                $key = md5(Carbon::now()).rand(0, 100000);
+                $key_link = 'http://'.$_SERVER['SERVER_NAME'].'/report?report='.$key;
+                Report::insert(['email'=>$email, 'key'=>$key]);
+
+                // Send message
+                Mail::send('sablon.mail-2', ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name, 'key'=>$key_link], function($m) use ($email, $subject, $from, $from_name){
+                    $m->to($email)->from($from, $from_name)->subject($subject);
+                });
+            }
+
+            if (isset($expediaza3) && !empty($request->input($i)))
+            {
+                $email = DB::table('sendmail')->where('id', $i)->value('email');
+                $from = $request->from;
+                $from_name = $request->from_name;
+                $subject = $request->subject;
+                $msg = $request->msg;
+                
+                //Create report a send message             
+                $key = md5(Carbon::now()).rand(0, 100000);
+                $key_link = 'http://'.$_SERVER['SERVER_NAME'].'/report?report='.$key;
+                Report::insert(['email'=>$email, 'key'=>$key]);
+
+                // Send message
+                Mail::send('sablon.mail-3', ['email'=>$email, 'subject'=>$subject, 'msg'=>$msg, 'from'=>$from, 'from_name'=>$from_name, 'key'=>$key_link], function($m) use ($email, $subject, $from, $from_name){
                     $m->to($email)->from($from, $from_name)->subject($subject);
                 });
             }
@@ -104,7 +144,7 @@ class UserController extends Controller
     public function statistic()
     {
         // $send = Report::distinct()->select('created_at')->get();
-        $send = Report::distinct()->select('created_at')->get();
+        $send = Report::distinct()->select('created_at')->orderby('created_at', 'desc')->get();
 
         return view('page.statistic', compact('send'));
     }

@@ -47,8 +47,8 @@ class PageController extends Controller
 
     public function report(Request $request) 
     {
-        $report = $request->report;
-        Report::where('key', $report)->update(['status', 'citit']);
+        $report = $_GET['report'];
+        Report::where('key', $report)->update(['status'=>'citit']);
     }
     
     public function uploadImage(Request $request) 

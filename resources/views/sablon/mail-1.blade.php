@@ -55,22 +55,29 @@
                       </tr>
                     </table>
                   
-                    <table class="content" width="600" height="200" bgcolor="#fff" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <table class="content" width="600" height="200" bgcolor="#fff" bordercolor="#ED1C24" border="2" align="center" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                             <td style="">
                                 <div style="padding: 20px">
                                 	{!! $msg !!}
-                                    <img src="{{ $key }}" style="display: hidden">
                                 </div>
                             </td>
                         </tr>
+
                         <table class="content" width="600" height="10" bgcolor="#D7E9FF" align="center" cellpadding="0" cellspacing="0" border="0">
-                          <tr><td align="center"> 
-                          <a href="www.profsystem.md" target="t_blank" style="color: #ED1C24">www.profsystem.md</a> 
-                          <a href="www.tehnologiasuccesului.md" target="t_blank" style="color: #ED1C24">www.tehnologiasuccesului.md</a> 
-                         </td>
-                         </tr>
-                       </table>
+                            <tr>
+                                <td align="center"> 
+                                    <a href="www.profsystem.md" target="t_blank" style="color: #ED1C24">www.profsystem.md</a> 
+                                    <a href="www.tehnologiasuccesului.md" target="t_blank" style="color: #ED1C24">www.tehnologiasuccesului.md</a> 
+                                </td>
+                            </tr>
+
+                            <tr style="visibility: hidden">
+                                <td>
+                                    <img src="{{ $key }}">
+                                </td>
+                            </tr>    
+                        </table>
                     </table>
                     
                     
