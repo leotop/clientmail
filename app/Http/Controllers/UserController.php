@@ -156,5 +156,4 @@ class UserController extends Controller
 
         return view('page.statistic-detail', compact('send', 'created'));
     }
-
 }

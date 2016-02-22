@@ -95,10 +95,10 @@ $(document).ready(function(){
 	   <tr>
 	      <td>
 	         <a href="home" class="btn btn-primary btn-xs">Toata lista clienti</a>
-	         <a href="statistic" class="btn btn-primary btn-xs">Statistica</a>
 	      </td>
-	      <td></td>
-	      <td></td>
+	      <td>
+	      	<a href="statistic" class="btn btn-primary btn-xs">Statistica</a>
+	      </td>
 	      <td></td>
 	   </tr>
 	</table>
